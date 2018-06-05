@@ -32,9 +32,9 @@ One should not change the names of the sheets in the template file.
 
 **4.** Save, authorize and preview!
 
-Note that making sure with previewing the script before running it is important! Take care to check logs and changes after executing the script in preview mode.
+Note that making sure to preview the script before running it is important! Take care to check logs and changes after executing the script in preview mode.
 
-The script ignores and skips any ad if any field exceeds the limits. Number of skipped ads are logged in the console so you can check if not done before the execution.
+This script ignores and skips any ad if any field exceeds the limits. Number of skipped ads are logged in the console so you can check if not done before the execution.
 
 Needs to be run in the MCC account.
 
