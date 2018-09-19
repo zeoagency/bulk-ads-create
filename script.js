@@ -32,7 +32,7 @@ function readSpreadsheet(sheetURL) {
                               .filter(function(val, i) {return val[0]})
   var firstNumOfAds = adCollection.length;
   adCollection = adCollection.filter(function(val) {
-    var validation = [[8, 30],[9, 30],[10, 80],[11, 15],[12, 15]]
+    var validation = [[8, 30],[9, 30],[10, 90],[11, 15],[12, 15]]
       , valid = true;
     for (var i = 0; i < validation.length; i++) {
       if (val[validation[i][0]] <= 0 || val[validation[i][0]] > validation[i][1]) {
