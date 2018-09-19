@@ -1,3 +1,7 @@
+/*
+ * Spreadsheet-based script to bulk create ads.
+ */
+
 function main() {
   var sheetURL = "INSERT_SPREADSHEET_URL_"
   var spreadSheetData = readSpreadsheet(sheetURL)
