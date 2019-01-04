@@ -5,7 +5,7 @@
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 function main() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var sheetURL = "SPREAD_SHEET_ID"
+  var sheetURL = "https://docs.google.com/spreadsheets/d/1_yd17JMTlVuBQzptbH2VvI15CTkSJD-hgYauZQkASJo/edit"
   var spreadSheetData = readSpreadsheet(sheetURL)
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (!spreadSheetData) {
@@ -13,7 +13,7 @@ function main() {
     return 'Failure';
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var MccClientID = 'XXX-YYY-ZZZZ'
+  var MccClientID = '721-960-2475'
     , MccClientAccounts = MccApp.accounts().withIds([MccClientID]).get()
     , MccClientAccount = MccClientAccounts.next();
   MccApp.select(MccClientAccount);
