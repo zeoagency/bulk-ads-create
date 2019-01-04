@@ -94,7 +94,7 @@ function createKeywords(keywordData, adGroupIterator) {
   while(adGroupIterator.hasNext()) {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     var thisAdGroup = adGroupIterator.next();
-  	var thisAdGroupID = thisAdGroup.getId();
+    var thisAdGroupID = thisAdGroup.getId();
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     try {
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -119,7 +119,7 @@ function createAds(adData, adGroupIterator) {
   while(adGroupIterator.hasNext()) {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     var thisAdGroup = adGroupIterator.next();
-  	var thisAdGroupID = thisAdGroup.getId();
+    var thisAdGroupID = thisAdGroup.getId();
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     try {
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
