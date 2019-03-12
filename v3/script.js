@@ -22,7 +22,7 @@ var sheetName = 'Sheet1';
 
 var isMcc = true;
 // MCC -Müşteri Merkezim- altında çalıştırılacaksa true olarak değiştirilmeli.
-// Bireysel hesaplarda kullanılıyorsa, değiştirilmemeli.
+// Bireysel hesaplarda kullanılıyorsa değiştirilmemeli.
 
 var gAdsCustomerId = 'XXX-YYY-ZZZ';
 // MCC altında çalıştırılacaksa Google Ads müşteri hesap numarası ile değiştirilmeli.
@@ -235,25 +235,24 @@ function createAds(adData, adGroupIterator) {
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         var adOperation = thisAdGroup.newAd().expandedTextAdBuilder();
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-        // Başlıklar
+        // Headlines
         expandedTextAd['headlines'].forEach(function(headline, i) {
           adOperation['withHeadlinePart' + (i + 1)](headline);
         });
-        // Açıklamalar
+        // Descriptions
         expandedTextAd['descriptions'].forEach(function(description, i) {
           adOperation['withDescription' + (i + 1)](description);
         });
-        // Görünen URL
+        // Visible URL
         expandedTextAd['paths'].forEach(function(path, i) {
           adOperation['withPath' + (i + 1)](path);
         });
-        // Varış sayfaları
+        // Final URLs
         adOperation['withFinalUrl'](expandedTextAd['lp']);
-
         if (expandedTextAd['mlp'].length) {
           adOperation['withMobileFinalUrl'](expandedTextAd['mlp']);
         }
-        // Tracking template
+        // Tracking Template
         adOperation['withTrackingTemplate'](expandedTextAd['template']);
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         var adOperationResult = adOperation.build();
