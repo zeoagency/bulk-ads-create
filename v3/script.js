@@ -21,11 +21,11 @@ var sheetName = 'Sheet1';
 // Kaynak dosyada, reklamların bulunduğu sayfanın ismi.
 
 var isMcc = true;
-// MCC -Müşteri Merkezim- altında çalıştırılacaksa true olarak değiştirilmeli.
+// MCC -Müşteri Merkezim- altında çalıştırılıyorsa true olarak değiştirilmeli.
 // Bireysel hesaplarda kullanılıyorsa değiştirilmemeli.
 
 var gAdsCustomerId = 'XXX-YYY-ZZZ';
-// MCC altında çalıştırılacaksa Google Ads müşteri hesap numarası ile değiştirilmeli.
+// MCC altında çalıştırılıyorsa Google Ads müşteri hesap numarası ile değiştirilmeli.
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 function main() {
