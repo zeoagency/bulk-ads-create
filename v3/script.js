@@ -6,6 +6,9 @@
   * 
   * Doğru çalışabilmesi için aşağıdaki seçeneklerin düzenlenmesi gerekmektedir.
   *
+  * Kullanılması gereken spreadsheet şablonu:
+  * https://docs.google.com/spreadsheets/d/1jExrloljobQrR7uw0qrmDoMBt21IyBVafIzAZdlEnsM
+  *
   * ZEO.org
   *
   */
