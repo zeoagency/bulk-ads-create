@@ -30,7 +30,7 @@ var gAdsCustomerId = 'XXX-YYY-ZZZ';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 function main() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var spreadSheetData = readSpreadsheet(spreadsheetURL)
+  var spreadSheetData = readSpreadsheet(spreadsheetURL);
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (!spreadSheetData) {
     return;
@@ -42,7 +42,7 @@ function main() {
     AdsManagerApp.select(MccClientAccount);
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var targetAdGroups = selectAdGroups(spreadSheetData['adGroupIds'])
+  var targetAdGroups = selectAdGroups(spreadSheetData['adGroupIds']);
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (targetAdGroups.totalNumEntities() === 0) {
     Logger.log(
@@ -51,7 +51,8 @@ function main() {
     return;
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var adCreationResult = createAds(spreadSheetData, targetAdGroups)
+  var adCreationResult = createAds(spreadSheetData, targetAdGroups);
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   Logger.log(
     'Oluşturulan reklam sayısı: %s\n' + 
     'Hata alınan reklam sayısı: %s',
@@ -81,7 +82,7 @@ function readSpreadsheet(spreadsheetURL) {
       , endColumn = 11
       , rows = sheet.getRange(startRow, startColumn, endRow, endColumn).getValues();
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-    var adData = {}
+    var adData = {};
     var adGroupIds = [];
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
     rows.forEach(function(row, i) {
@@ -140,34 +141,34 @@ function testAdFields(ad) {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   var errors = [];
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var headlines = ad['headlines'].filter(function(headline) {return headline.length && headline.length <= 30})
+  var headlines = ad['headlines'].filter(function(headline) {return headline.length && headline.length <= 30});
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var descriptions = ad['descriptions'].filter(function(desc) {return desc.length && desc.length <= 90})
+  var descriptions = ad['descriptions'].filter(function(desc) {return desc.length && desc.length <= 90});
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var paths = ad['paths'].filter(function(path) {return path.length > 15})
+  var paths = ad['paths'].filter(function(path) {return path.length > 15});
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var lps = [ad['lp'], ad['mlp']].filter(function(lp) {return lp.length})
+  var lps = [ad['lp'], ad['mlp']].filter(function(lp) {return lp.length});
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   var adGroupId = ad['adGroupId'].length ? true : false;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (headlines.length < 3) {
-    errors.push('Başlık: Karakter aşımı ya da eksik başlık alanı.')
+    errors.push('Başlık: Karakter aşımı ya da eksik başlık alanı.');
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (descriptions.length < 2) {
-    errors.push('Reklam Açıklaması: Karakter aşımı ya da eksik açıklama alanı.')
+    errors.push('Reklam Açıklaması: Karakter aşımı ya da eksik açıklama alanı.');
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (paths.length) {
-    errors.push('Görünen URL: Karakter aşımı.')
+    errors.push('Görünen URL: Karakter aşımı.');
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (!lps.length) {
-    errors.push('Açılış Sayfası: Açılış sayfası belirtilmemiş.')
+    errors.push('Açılış Sayfası: Açılış sayfası belirtilmemiş.');
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (!adGroupId) {
-    errors.push('Reklam Grubu Numarası: Reklam grubu numarası belirtilmemiş.')
+    errors.push('Reklam Grubu Numarası: Reklam grubu numarası belirtilmemiş.');
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   return errors;
@@ -179,7 +180,7 @@ function correctPaths(ad) {
   var paths = ad['paths'].slice();
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (!paths[0].length && paths[1].length) {
-    ad['paths'][0] = paths[1]
+    ad['paths'][0] = paths[1];
     ad['paths'][1] = '';
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -206,7 +207,7 @@ function selectAdGroups(adGroupIds) {
       '10.000\'den daha fazla reklam grubu bulundu. ' +
       'Yalnızca ilk 10.000 satır işlenecek.'
       );
-    adGroupIds = adGroupIds.slice(0, 10000)
+    adGroupIds = adGroupIds.slice(0, 10000);
   } 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   return AdsApp.adGroups()
@@ -236,35 +237,35 @@ function createAds(adData, adGroupIterator) {
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         // Başlıklar
         expandedTextAd['headlines'].forEach(function(headline, i) {
-          adOperation['withHeadlinePart' + (i + 1)](headline)
-        })
+          adOperation['withHeadlinePart' + (i + 1)](headline);
+        });
         // Açıklamalar
         expandedTextAd['descriptions'].forEach(function(description, i) {
-          adOperation['withDescription' + (i + 1)](description)
-        })
+          adOperation['withDescription' + (i + 1)](description);
+        });
         // Görünen URL
         expandedTextAd['paths'].forEach(function(path, i) {
-          adOperation['withPath' + (i + 1)](path)
-        })
+          adOperation['withPath' + (i + 1)](path);
+        });
         // Varış sayfaları
-        adOperation['withFinalUrl'](expandedTextAd['lp'])
+        adOperation['withFinalUrl'](expandedTextAd['lp']);
 
         if (expandedTextAd['mlp'].length) {
-          adOperation['withMobileFinalUrl'](expandedTextAd['mlp'])
+          adOperation['withMobileFinalUrl'](expandedTextAd['mlp']);
         }
         // Tracking template
-        adOperation['withTrackingTemplate'](expandedTextAd['template'])
+        adOperation['withTrackingTemplate'](expandedTextAd['template']);
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         var adOperationResult = adOperation.build();
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
         if (adOperationResult.isSuccessful()) {
-          successOps++
+          successOps++;
         } else {
           Logger.log(
             'Reklam oluşturuluyorken hata meydana geldi. [' + expandedTextAd['headlines'].join(' | ') + ']: ' + 
             adOperationResult.getErrors()
             );
-          failedOps++
+          failedOps++;
          }
         //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
       })
@@ -276,5 +277,5 @@ function createAds(adData, adGroupIterator) {
     }
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  return {success: successOps, fail: failedOps}
+  return {success: successOps, fail: failedOps};
 }
