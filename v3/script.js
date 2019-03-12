@@ -148,7 +148,7 @@ function testAdFields(ad) {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   var lps = [ad['lp'], ad['mlp']].filter(function(lp) {return lp.length})
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var adGroupId = ad['adGroupId'].toString().length ? true : false;
+  var adGroupId = ad['adGroupId'].length ? true : false;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (headlines.length < 3) {
     errors.push('Başlık: Karakter aşımı ya da eksik başlık alanı.')
