@@ -27,7 +27,7 @@ var isMcc = false;
 // MCC -Müşteri Merkezim- altında çalıştırılıyorsa true olarak değiştirilmeli.
 // Bireysel hesaplarda kullanılıyorsa değiştirilmemeli.
 
-var gAdsCustomerId = 'XXX-YYY-ZZZ';
+var gAdsCustomerId = 'XXX-YYY-ZZZZ';
 // MCC altında çalıştırılıyorsa Google Ads müşteri hesap numarası ile değiştirilmeli.
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
