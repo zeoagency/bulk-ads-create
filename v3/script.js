@@ -23,7 +23,7 @@ var spreadsheetURL = 'SPREADSHEET_URL';
 var sheetName = 'Sheet1';
 // Kaynak dosyada, reklamların bulunduğu sayfanın ismi.
 
-var isMcc = true;
+var isMcc = false;
 // MCC -Müşteri Merkezim- altında çalıştırılıyorsa true olarak değiştirilmeli.
 // Bireysel hesaplarda kullanılıyorsa değiştirilmemeli.
 
