@@ -33,7 +33,7 @@ var gAdsCustomerId = 'XXX-YYY-ZZZ';
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 function main() {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var spreadSheetData = readSpreadsheet(spreadsheetURL);
+  var spreadsheetData = readSpreadsheet(spreadsheetURL);
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (!spreadSheetData) {
     return;
@@ -45,7 +45,7 @@ function main() {
     AdsManagerApp.select(MccClientAccount);
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var targetAdGroups = selectAdGroups(spreadSheetData['adGroupIds']);
+  var targetAdGroups = selectAdGroups(spreadsheetData['adGroupIds']);
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   if (targetAdGroups.totalNumEntities() === 0) {
     Logger.log(
@@ -54,7 +54,7 @@ function main() {
     return;
   }
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-  var adCreationResult = createAds(spreadSheetData, targetAdGroups);
+  var adCreationResult = createAds(spreadsheetData, targetAdGroups);
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
   Logger.log(
     'Oluşturulan reklam sayısı: %s\n' + 
