@@ -250,8 +250,9 @@ function createAds(adData, adGroupIterator) {
         expandedTextAd['paths'].forEach(function(path, i) {
           adOperation['withPath' + (i + 1)](path);
         });
-        // Final URLs
+        // Final URL
         adOperation['withFinalUrl'](expandedTextAd['lp']);
+        // Mobile Final URL
         if (expandedTextAd['mlp'].length) {
           adOperation['withMobileFinalUrl'](expandedTextAd['mlp']);
         }
